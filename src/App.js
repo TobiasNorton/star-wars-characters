@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import logo from './logo.svg'
 import './App.css'
 import axios from 'axios'
+import Character from './Character'
 
 class App extends Component {
   constructor(props) {
@@ -33,7 +34,6 @@ class App extends Component {
       },
       () => {
         axios.get(`https://swapi.co/api/people/?page=${this.state.pageNumber}`).then(response => {
-          console.log(response.data.results)
           this.setState({
             characterObjects: response.data.results
           })
@@ -59,7 +59,6 @@ class App extends Component {
       },
       () => {
         axios.get(`https://swapi.co/api/people/?page=${this.state.pageNumber}`).then(response => {
-          console.log(response.data.results)
           this.setState({
             characterObjects: response.data.results
           })
@@ -68,48 +67,44 @@ class App extends Component {
     )
   }
 
-  selectCharacter = event => {
-    // axios.get(`https://swapi.co/api/people/?page=${this.state.pageNumber}`).then(response => {
-    //   console.log(response.data.results)
+  selectCharacter = characterIndex => {
     this.setState(
       {
-        selectedCharacter: event.target.value
+        selectedCharacter: characterIndex
       },
       () => {
+        console.log('you selected')
         console.log(this.state.selectedCharacter)
       }
     )
-    // })
-    // displayCharacterProfile()
   }
 
-  // displayCharacterProfile = () => {
-  //   console.log(response.data.results)
-  // }
-
-  // previousButtonAppears = () => {
-  //   if (this.state.pageNumber === 9) {
-  //     return <button onClick={this.previousList}>Previous</button>
-  //   }
-  // }
-
-  // characterListButton = () => {
-  //   if (this.state.pageNumber < 9) {
-  //     return (
-  //       <button className="more-characters" onClick={this.nextCharacterList}>
-  //         More Characters
-  //       </button>
-  //     )
-  //   } else {
-  //     return <button onClick={this.previousList}>Previous</button>
-  //   }
-  // }
+  displayCharacterProfile = () => {
+    if (this.state.selectedCharacter >= 0) {
+      return (
+        <>
+          <h2>{this.state.characterObjects[this.state.selectedCharacter].name}</h2>
+          <ul>
+            <li>{this.state.characterObjects[this.state.selectedCharacter].species}</li>
+            <li>{this.state.characterObjects[this.state.selectedCharacter].homeworld}</li>
+            <li>{this.state.characterObjects[this.state.selectedCharacter].gender}</li>
+          </ul>
+        </>
+      )
+    }
+  }
 
   componentDidMount = () => {
     axios.get('https://swapi.co/api/people').then(response => {
-      this.setState({
-        characterObjects: response.data.results
-      })
+      console.log(response.data)
+      this.setState(
+        {
+          characterObjects: response.data.results
+        },
+        () => {
+          console.log(this.state.characterObjects)
+        }
+      )
     })
   }
 
@@ -122,9 +117,19 @@ class App extends Component {
           <ul>
             {this.state.characterObjects.map((characterObject, index) => {
               return (
-                <li value={characterObject.name} onClick={this.selectCharacter} key={index}>
-                  {characterObject.name}
-                </li>
+                // <li
+                //   value={index}
+                //   data-character={characterObject}
+                //   onClick={this.selectCharacter}
+                //   key={index}
+                // >
+                //   {characterObject.name}
+                // </li>
+                <Character
+                  characterIndex={index}
+                  name={characterObject.name}
+                  selectCharacter={this.selectCharacter}
+                />
               )
             })}
           </ul>
@@ -132,13 +137,8 @@ class App extends Component {
             {this.nextButton()}
             {this.previousButton()}
           </div>
-          {/* <button className="more-characters" onClick={this.nextCharacterList}>
-            More Characters
-          </button> */}
-          {/* {this.previousButtonAppears()} */}
-
-          <div>{this.displayCharacterProfile}</div>
         </section>
+        <div>{this.displayCharacterProfile()}</div>
       </div>
     )
   }

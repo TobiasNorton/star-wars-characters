@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import './App.css'
 import axios from 'axios'
 import Character from './Character'
+import Profile from './Profile'
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class App extends Component {
     this.state = {
       characterObjects: [],
       pageNumber: 1,
-      selectedCharacter: undefined
+      selectedCharacter: undefined,
+      characterSpeciesList: []
     }
   }
 
@@ -79,17 +81,22 @@ class App extends Component {
     )
   }
 
+  getCharacterSpecies = () => {
+    axios.get('https://swapi.co/api/species/').then(response => {
+      console.log(response.data.results)
+      // this.setState({
+      //   characterSpeciesList: response.data.results.name
+      // })
+    })
+  }
+
   displayCharacterProfile = () => {
     if (this.state.selectedCharacter >= 0) {
       return (
-        <>
-          <h2>{this.state.characterObjects[this.state.selectedCharacter].name}</h2>
-          <ul>
-            <li>{this.state.characterObjects[this.state.selectedCharacter].species}</li>
-            <li>{this.state.characterObjects[this.state.selectedCharacter].homeworld}</li>
-            <li>{this.state.characterObjects[this.state.selectedCharacter].gender}</li>
-          </ul>
-        </>
+        <Profile
+          name={this.state.characterObjects[this.state.selectedCharacter].name}
+          species={this.getCharacterSpecies}
+        />
       )
     }
   }

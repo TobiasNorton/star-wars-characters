@@ -74,43 +74,27 @@ class App extends Component {
       {
         selectedCharacter: characterIndex
       },
-      () => {
-        console.log('you selected')
-        console.log(this.state.selectedCharacter)
-      }
+      () => {}
     )
-  }
-
-  getCharacterSpecies = () => {
-    axios.get('https://swapi.co/api/species/').then(response => {
-      console.log(response.data.results)
-      // this.setState({
-      //   characterSpeciesList: response.data.results.name
-      // })
-    })
   }
 
   displayCharacterProfile = () => {
     if (this.state.selectedCharacter >= 0) {
+      const character = this.state.characterObjects[this.state.selectedCharacter]
+
       return (
-        <Profile
-          name={this.state.characterObjects[this.state.selectedCharacter].name}
-          species={this.getCharacterSpecies}
-        />
+        <Profile key={character.name} name={character.name} speciesURL={character.species[0]} />
       )
     }
   }
 
   componentDidMount = () => {
     axios.get('https://swapi.co/api/people').then(response => {
-      console.log(response.data)
       this.setState(
         {
           characterObjects: response.data.results
         },
-        () => {
-          console.log(this.state.characterObjects)
-        }
+        () => {}
       )
     })
   }
@@ -133,6 +117,7 @@ class App extends Component {
                 //   {characterObject.name}
                 // </li>
                 <Character
+                  key={index}
                   characterIndex={index}
                   name={characterObject.name}
                   selectCharacter={this.selectCharacter}

@@ -1,10 +1,21 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 class Profile extends Component {
-  characterSpecies = event => {
-    //call API for species
-    // {this.state.characterObjects[this.state.selectedCharacter].species}
-    this.props.getCharacterSpecies()
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      species: {}
+    }
+  }
+
+  componentDidMount = () => {
+    axios.get(this.props.speciesURL).then(response => {
+      this.setState({
+        species: response.data
+      })
+    })
   }
 
   render() {
@@ -12,11 +23,11 @@ class Profile extends Component {
       <>
         <h2>{this.props.name}</h2>
         <ul>
-          <li onClick={this.characterSpecies()}>Species: </li>
+          <li>Species: </li>
           {/* <li>
             Home Planet: {this.state.characterObjects[this.state.selectedCharacter].homeworld}
           </li> */}
-          <li>Gender {this.state.characterObjects[this.state.selectedCharacter].gender}</li>
+          <li>{this.state.species.name}</li>
         </ul>
       </>
     )

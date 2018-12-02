@@ -92,6 +92,7 @@ class App extends Component {
           homePlanetURL={character.homeworld}
           image={character}
           pageNumber={this.state.pageNumber}
+          displayCharacterLists={this.displayCharacterLists}
         />
       )
     }
@@ -122,7 +123,6 @@ class App extends Component {
                     characterIndex={index}
                     name={characterObject.name}
                     selectCharacter={this.selectCharacter}
-                    // displayCharacterLists={this.displayCharacterLists}
                   />
                 )
               })}

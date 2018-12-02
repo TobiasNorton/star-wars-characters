@@ -111,7 +111,7 @@ class App extends Component {
   listOrProfile = () => {
     if (!this.state.profileDisplaying) {
       return (
-        <>
+        <div>
           <h3>Choose a character to display their profile!</h3>
           <section className="character-selection">
             <ul>
@@ -122,6 +122,7 @@ class App extends Component {
                     characterIndex={index}
                     name={characterObject.name}
                     selectCharacter={this.selectCharacter}
+                    // displayCharacterLists={this.displayCharacterLists}
                   />
                 )
               })}
@@ -131,19 +132,18 @@ class App extends Component {
               {this.previousButton()}
             </div>
           </section>
-        </>
+        </div>
       )
     } else {
       return
     }
   }
 
-  // backToCharacters = () => {
-  //   location.reload()
-  // this.setState({
-  //   profileDisplaying: false
-  // })
-  // }
+  displayCharacterLists = () => {
+    this.setState({
+      profileDisplaying: false
+    })
+  }
 
   render() {
     return (

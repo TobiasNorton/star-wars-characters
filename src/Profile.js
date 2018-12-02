@@ -50,16 +50,16 @@ class Profile extends Component {
   }
 
   backToCharactersButton = () => {
-    this.props.backToCharacters()
+    this.props.displayCharacterLists()
   }
 
   render() {
     return (
       <section className="profile">
-        <img
+        {/* <img
           src={this.state.picture[this.props.pageNumber][this.props.character]}
           alt="Star Wars Character"
-        />
+        /> */}
         <h2>{this.props.name}</h2>
         <ul>
           <li>Species: {this.state.species.name}</li>

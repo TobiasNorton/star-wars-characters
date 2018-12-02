@@ -13,7 +13,8 @@ class App extends Component {
       characterObjects: [],
       pageNumber: 1,
       selectedCharacter: undefined,
-      characterSpeciesList: []
+      characterSpeciesList: [],
+      profileDisplaying: false
     }
   }
 
@@ -72,18 +73,26 @@ class App extends Component {
   selectCharacter = characterIndex => {
     this.setState(
       {
-        selectedCharacter: characterIndex
+        selectedCharacter: characterIndex,
+        profileDisplaying: true
       },
       () => {}
     )
   }
 
   displayCharacterProfile = () => {
-    if (this.state.selectedCharacter >= 0) {
+    if (this.state.selectedCharacter >= 0 && this.state.profileDisplaying === true) {
       const character = this.state.characterObjects[this.state.selectedCharacter]
-
       return (
-        <Profile key={character.name} name={character.name} speciesURL={character.species[0]} />
+        <Profile
+          key={this.state.selectedCharacter}
+          character={character}
+          name={character.name}
+          speciesURL={character.species[0]}
+          homePlanetURL={character.homeworld}
+          image={character}
+          pageNumber={this.state.pageNumber}
+        />
       )
     }
   }
@@ -99,37 +108,48 @@ class App extends Component {
     })
   }
 
+  listOrProfile = () => {
+    if (!this.state.profileDisplaying) {
+      return (
+        <>
+          <h3>Choose a character to display their profile!</h3>
+          <section className="character-selection">
+            <ul>
+              {this.state.characterObjects.map((characterObject, index) => {
+                return (
+                  <Character
+                    key={index}
+                    characterIndex={index}
+                    name={characterObject.name}
+                    selectCharacter={this.selectCharacter}
+                  />
+                )
+              })}
+            </ul>
+            <div className="buttons-container">
+              {this.nextButton()}
+              {this.previousButton()}
+            </div>
+          </section>
+        </>
+      )
+    } else {
+      return
+    }
+  }
+
+  // backToCharacters = () => {
+  //   location.reload()
+  // this.setState({
+  //   profileDisplaying: false
+  // })
+  // }
+
   render() {
     return (
       <div>
         <h1>Star Wars Characters</h1>
-        <h3>Choose a character to display their profile!</h3>
-        <section className="character-selection">
-          <ul>
-            {this.state.characterObjects.map((characterObject, index) => {
-              return (
-                // <li
-                //   value={index}
-                //   data-character={characterObject}
-                //   onClick={this.selectCharacter}
-                //   key={index}
-                // >
-                //   {characterObject.name}
-                // </li>
-                <Character
-                  key={index}
-                  characterIndex={index}
-                  name={characterObject.name}
-                  selectCharacter={this.selectCharacter}
-                />
-              )
-            })}
-          </ul>
-          <div className="buttons-container">
-            {this.nextButton()}
-            {this.previousButton()}
-          </div>
-        </section>
+        {this.listOrProfile()}
         <div>{this.displayCharacterProfile()}</div>
       </div>
     )

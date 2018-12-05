@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import logo from './logo.svg'
 import './App.css'
 import axios from 'axios'
 import Character from './Character'
@@ -100,12 +99,9 @@ class App extends Component {
 
   componentDidMount = () => {
     axios.get('https://swapi.co/api/people').then(response => {
-      this.setState(
-        {
-          characterObjects: response.data.results
-        },
-        () => {}
-      )
+      this.setState({
+        characterObjects: response.data.results
+      })
     })
   }
 

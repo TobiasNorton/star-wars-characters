@@ -1,26 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-// import threepio from './images/2.jpeg'
-// import r2d2 from './images/3.jpg'
-// import vader from './images/4.jpeg'
-// import leia from './images/5.jpg'
-// import owen from './images/6.jpg'
-// import beru from './images/7.jpg'
-// import r5d4 from './images/8.jpg'
-// import biggs from './images/9.jpeg'
-// import obi from './images/10.jpeg'
-// import anakin from './images/11.jpg'
-// import tarkin from './images/12.png'
-// import chewbacca from './images/13.jpg'
-// import han from './images/14.jpg'
-// import greedo from './images/15.jpeg'
-// import jabba from './images/16.jpg'
-// import wedge from './images/17.jpg'
-// import jek from './images/18.jpeg'
-// import yoda from './images/19.jpeg'
-// import palpatine from './images/20.jpg'
-
 const IMAGES = {
   'Luke Skywalker': require('./images/1.jpg'),
   'C-3PO': require('./images/2.jpeg'),
@@ -41,7 +21,74 @@ const IMAGES = {
   'Wedge Antilles': require('./images/17.jpg'),
   'Jek Tono Porkins': require('./images/18.jpeg'),
   Yoda: require('./images/19.jpeg'),
-  Palpatine: require('./images/20.jpg')
+  Palpatine: require('./images/20.jpg'),
+  'Boba Fett': require('./images/Boba-Fett_61fdadfd.jpeg'),
+  'IG-88': require('./images/IG88.jpeg'),
+  Bossk: require('./images/Bossk.png'),
+  'Lando Calrissian': require('./images/Lando.jpg'),
+  Lobot: require('./images/lobot.jpeg'),
+  Ackbar: require('./images/ackbar1.jpg'),
+  'Mon Mothma': require('./images/monmothma.jpeg'),
+  'Arvel Crynyd': require('./images/Arvel-crynyd.jpg'),
+  'Wicket Systri Warrick': require('./images/wicket.jpeg'),
+  'Nien Nunb': require('./images/nien.jpeg'),
+  'Qui-Gon Jinn': require('./images/Qui-Gon-Jinn_d89416e8.jpeg'),
+  'Nute Gunray': require('./images/nute_gunray.jpeg'),
+  'Finis Valorum': require('./images/finis_val.jpeg'),
+  'Jar Jar Binks': require('./images/jarjar.jpg'),
+  'Roos Tarpals': require('./images/roos_tarpals.jpg'),
+  'Rugor Nass': require('./images/rugor_nass.jpg'),
+  'Ric Olié': require('./images/ric_olie.jpeg'),
+  Watto: require('./images/watto.jpeg'),
+  Sebulba: require('./images/sebulba_1f3fe180.jpeg'),
+  'Quarsh Panaka': require('./images/quarsh.jpeg'),
+  'Shmi Skywalker': require('./images/Shmi_Skywalker_002.jpg'),
+  'Darth Maul': require('./images/darth_maul.webp'),
+  'Bib Fortuna': require('./images/bib_fortuna.jpeg'),
+  'Ayla Secura': require('./images/ayla_secura.jpg'),
+  'Dud Bolt': require('./images/Dud_Bolt_Podracer_Cockpit.png'),
+  Gasgano: require('./images/gasgano.jpg'),
+  'Ben Quadinaros': require('./images/ben_quad.jpeg'),
+  'Mace Windu': require('./images/mace_windu.jpg'),
+  'Ki-Adi-Mundi': require('./images/ki_adi_mundi.jpeg'),
+  'Kit Fisto': require('./images/kit_fisto.jpeg'),
+  'Eeth Koth': require('./images/Eeth-Koth2_246ea172.jpeg'),
+  'Adi Gallia': require('./images/adi_gallia.jpeg'),
+  'Saesee Tiin': require('./images/Saesse_tiin.jpg'),
+  'Yarael Poof': require('./images/Yarael_Poof.png'),
+  'Plo Koon': require('./images/plo_koon.jpeg'),
+  'Mas Armedda': require('./images/mas-amedda.jpeg'),
+  'Gregor Typho': require('./images/gregor_typho.jpeg'),
+  Cordé: require('./images/Corde.jpg'),
+  'Cliegg Lars': require('./images/cliegg_lars.jpeg'),
+  'Poggle the Lesser': require('./images/poggle.jpeg'),
+  'Luminara Unduli': require('./images/luminara-unduli-1-retina_1824949d.jpeg'),
+  'Barriss Offee': require('./images/barris.jpg'),
+  Dormé: require('./images/dorme.jpg'),
+  Dooku: require('./images/dooku.png'),
+  'Bail Prestor Organa': require('./images/bail-organa.jpeg'),
+  'Jango Fett': require('./images/jango.jpeg'),
+  'Zam Wesell': require('./images/zam.jpg'),
+  'Dexter Jettster': require('./images/dexter.jpeg'),
+  'Lama Su': require('./images/Lama_Su.jpg'),
+  'Taun We': require('./images/taun_ we.jpeg'),
+  'Jocasta Nu': require('./images/jocasta-nu_a3b32f08.jpeg'),
+  'Ratts Tyerell': require('./images/ratts.jpeg'),
+  'R4-P17': require('./images/R4P17.jpg'),
+  'Wat Tambor': require('./images/wat-tambor.jpeg'),
+  'San Hill': require('./images/san-hill_852a226d.jpeg'),
+  'Shaak Ti': require('./images/shaak_ti_9523e7c7.jpeg'),
+  Grievous: require('./images/Grievous_c9df9cb5.jpeg'),
+  Tarfful: require('./images/tarrful_f20d3412.jpeg'),
+  'Raymous Antilles': require('./images/Raymus_card_trader.png'),
+  'Sly Moore': require('./images/SlyMoore.jpg'),
+  'Tion Medon': require('./images/tionmedon_.jpeg'),
+  Finn: require('./images/finn.webp'),
+  Rey: require('./images/rey.jpg'),
+  'Poe Dameron': require('./images/poe-dameron_70f5aee2.jpeg'),
+  BB8: require('./images/bb8.jpg'),
+  'Captain Phasma': require('./images/captain-phasma-armor.jpg'),
+  'Padmé Amidala': require('./images/padme.jpg')
 }
 
 // Don't we need to import?

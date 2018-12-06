@@ -13,7 +13,7 @@ const IMAGES = {
   'Biggs Darklighter': require('./images/9.jpeg'),
   'Obi-Wan Kenobi': require('./images/10.jpeg'),
   'Anakin Skywalker': require('./images/11.jpg'),
-  'Wilhuff Tarkin': require('./images/12.png'),
+  'Wilhuff Tarkin': require('./images/wilhuff_tarkin.jpeg'),
   Chewbacca: require('./images/13.jpg'),
   'Han Solo': require('./images/14.jpg'),
   Greedo: require('./images/15.jpeg'),
@@ -24,7 +24,7 @@ const IMAGES = {
   Palpatine: require('./images/20.jpg'),
   'Boba Fett': require('./images/Boba-Fett_61fdadfd.jpeg'),
   'IG-88': require('./images/IG88.jpeg'),
-  Bossk: require('./images/Bossk.png'),
+  Bossk: require('./images/bossk.jpeg'),
   'Lando Calrissian': require('./images/Lando.jpg'),
   Lobot: require('./images/lobot.jpeg'),
   Ackbar: require('./images/ackbar1.jpg'),
@@ -46,7 +46,7 @@ const IMAGES = {
   'Darth Maul': require('./images/darth_maul.webp'),
   'Bib Fortuna': require('./images/bib_fortuna.jpeg'),
   'Ayla Secura': require('./images/ayla_secura.jpg'),
-  'Dud Bolt': require('./images/Dud_Bolt_Podracer_Cockpit.png'),
+  'Dud Bolt': require('./images/Dud_Bolt.jpg'),
   Gasgano: require('./images/gasgano.jpg'),
   'Ben Quadinaros': require('./images/ben_quad.jpeg'),
   'Mace Windu': require('./images/mace_windu.jpg'),
@@ -55,7 +55,7 @@ const IMAGES = {
   'Eeth Koth': require('./images/Eeth-Koth2_246ea172.jpeg'),
   'Adi Gallia': require('./images/adi_gallia.jpeg'),
   'Saesee Tiin': require('./images/Saesse_tiin.jpg'),
-  'Yarael Poof': require('./images/Yarael_Poof.png'),
+  'Yarael Poof': require('./images/Yarael_Poof_Canon.jpg'),
   'Plo Koon': require('./images/plo_koon.jpeg'),
   'Mas Armedda': require('./images/mas-amedda.jpeg'),
   'Gregor Typho': require('./images/gregor_typho.jpeg'),
@@ -65,7 +65,7 @@ const IMAGES = {
   'Luminara Unduli': require('./images/luminara-unduli-1-retina_1824949d.jpeg'),
   'Barriss Offee': require('./images/barris.jpg'),
   Dormé: require('./images/dorme.jpg'),
-  Dooku: require('./images/dooku.png'),
+  Dooku: require('./images/dooku.jpeg'),
   'Bail Prestor Organa': require('./images/bail-organa.jpeg'),
   'Jango Fett': require('./images/jango.jpeg'),
   'Zam Wesell': require('./images/zam.jpg'),
@@ -80,7 +80,7 @@ const IMAGES = {
   'Shaak Ti': require('./images/shaak_ti_9523e7c7.jpeg'),
   Grievous: require('./images/Grievous_c9df9cb5.jpeg'),
   Tarfful: require('./images/tarrful_f20d3412.jpeg'),
-  'Raymous Antilles': require('./images/Raymus_card_trader.png'),
+  'Raymous Antilles': require('./images/raymus.jpg'),
   'Sly Moore': require('./images/SlyMoore.jpg'),
   'Tion Medon': require('./images/tionmedon_.jpeg'),
   Finn: require('./images/finn.webp'),
@@ -90,10 +90,6 @@ const IMAGES = {
   'Captain Phasma': require('./images/captain-phasma-armor.jpg'),
   'Padmé Amidala': require('./images/padme.jpg')
 }
-
-// Don't we need to import?
-// Why is IMAGES capitalized?
-// Why not just use the image URL
 
 class Profile extends Component {
   constructor(props) {

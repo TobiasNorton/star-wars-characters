@@ -128,7 +128,7 @@ class Profile extends Component {
           <li>Species: {this.state.species.name}</li>
           <li>Home Planet: {this.state.homePlanet.name}</li>
         </ul>
-        <button className="list-button" onClick={this.backToCharactersButton}>
+        <button className="list-button back" onClick={this.backToCharactersButton}>
           Back to Characters
         </button>
       </section>

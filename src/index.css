@@ -18,9 +18,17 @@ code {
 }
 
 h1 {
+  font-family: 'Montserrat', sans-serif;
+  /* font-weight: black 900; */
   color: white;
   font-size: 3rem;
   text-align: center;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 0;
 }
 
 h3 {
@@ -36,6 +44,7 @@ h3 {
 }
 
 .list-button {
+  font-family: 'Montserrat', sans-serif;
   display: block;
   font-size: 1rem;
   padding: 1rem;
@@ -54,6 +63,7 @@ li {
   margin: 0.2rem;
   list-style: none;
   color: yellow;
+  font-family: 'Montserrat', sans-serif;
 }
 
 li:hover {

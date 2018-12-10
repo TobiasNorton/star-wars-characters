@@ -18,8 +18,6 @@ See it live: http://tobiasnorton-star-wars-characters.surge.sh/
 
 - React.js - https://reactjs.org/
 
-- React Router - https://github.com/ReactTraining/react-router
-
 - Axios - https://github.com/axios/axios
 
 - CSS

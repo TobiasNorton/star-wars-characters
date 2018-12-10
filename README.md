@@ -1,7 +1,7 @@
 # Star Wars Characters
 
 <p align="center">
-  <img src="" alt="Star Wars character animation"/>
+  <img src="https://github.com/TobiasNorton/star-wars-characters/blob/master/src/StarWars.gif?raw=true" alt="Star Wars character animation"/>
 </p>
 
 See it live: http://tobiasnorton-star-wars-characters.surge.sh/

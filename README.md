@@ -12,4 +12,14 @@ See it live: http://tobiasnorton-star-wars-characters.surge.sh/
 
 - Using React components, the DOM updates dynamically without having to refresh the browser. Users can move forwards or backwards to change character lists and open a profile by clicking on a character name.
 
-- Built with JavaScript, React.js and CSS
+### Built with:
+
+- JavaScript - https://www.javascript.com/
+
+- React.js - https://reactjs.org/
+
+- React Router - https://github.com/ReactTraining/react-router
+
+- Axios - https://github.com/axios/axios
+
+- CSS
